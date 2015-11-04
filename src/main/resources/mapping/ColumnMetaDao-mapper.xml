@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sibu.codegen.dao.ColumnMetaDao">
+
+	<!-- 查询结果 -->
+	<resultMap type="cn.sibu.codegen.vo.ColumnMeta" id="ColumnMetaResult">
+		<result property="tableName" column="table_name" />
+		<result property="columnName" column="column_name" />
+		<result property="isNullable" column="is_nullable" />
+		<result property="dataType" column="data_type" />
+		<result property="columnKey" column="column_key" />
+		<result property="extra" column="extra" />
+	</resultMap>
+
+	<select id="select" resultMap="ColumnMetaResult" parameterType="map">
+		select * from information_schema.COLUMNS where TABLE_SCHEMA='liuqi' and
+		table_name=#{tableName}
+	</select>
+</mapper>

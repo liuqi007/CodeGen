@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.sibu.codegen.dao.TableMetaDao">
+
+	<!-- 查询结果 -->
+	<resultMap type="cn.sibu.codegen.vo.TableMeta" id="TableMetaResult">
+		<result property="tableName" column="table_name" />
+	</resultMap>
+	
+	<select id="loadAll" resultMap="TableMetaResult">
+		SELECT * FROM INFORMATION_SCHEMA.TABLES where table_type='BASE TABLE' and TABLE_schema='liuqi'
+	</select>
+</mapper>
